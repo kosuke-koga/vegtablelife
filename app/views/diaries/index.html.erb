@@ -3,6 +3,17 @@ hello
 <%= link_to "投稿する", new_diary_path, method: :get %>
 </div>
 
+<% @diaries.each do |d| %>
+  <%= d.vegtable %>
+  <%= d.action %>
+  <% if d.avatar?  %>
+    <%= image_tag d.avatar.url  %>
+  <% end %>
+  <%= d.text %>
+  <%= d.heart %>
+  <%= d.date %>
+  <p>-------------------------</p>
+<% end %>
 <%# <div>
 <p><label>検索できます<input type="search" name="search" maxlength=10></label></p>
 </div> %>
