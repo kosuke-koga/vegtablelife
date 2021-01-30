@@ -1,0 +1,10 @@
+<%= form_tag(diaries_path, method: :post) do %>
+  <div class="diaries_create">
+    <p><label>日付を入力してください<input type="date"  name="date_create" min="2020-01-01" max="2021-12-31" class="create_date"></label></p>
+    <p><label>野菜を選択して下さい<input type="text" name="vegtable" class="create_veg"></label></p>
+    <p><label>作業内容を入力して下さい<input type="text" name="action" class="create_action"></label></p>
+    <p><label>画像をアップロードして下さい<input type="file" name="image" accept="image/*" multiple></label></p>
+    <p><label>日記を入力して下さい<textarea name=text  rows=10 cols=80.9 class="create_text" placeholder="今日はおいしいキャベツが取れました"></textarea></label></p> 
+    <input type =submit value=SEND class="create_submit">
+  </div>
+<% end %>

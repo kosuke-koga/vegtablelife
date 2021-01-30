@@ -1,3 +1,99 @@
 // Place all the styles related to the diaries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+*{
+  box-sizing: border-box;
+}
+
+html, body,
+ul, ol, li,
+h1, h2, h3, p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+}
+// --------------------------header-------------------------------------
+.heading{
+  display: flex;
+  justify-content: space-between;
+  height :100px;
+  background-color: #DEFFDD;
+}
+
+.title{
+  padding-top: 30px;
+  margin-left: 75px;
+  font-weight: bold;
+  font-size: 14pt;
+  background-color:#DEFFDD;
+  color: black;
+  h1{
+    background-color:#DEFFDD;
+  }
+}
+
+.header_category{
+  display:flex;
+  padding-top: 50px;
+  margin-right: 75px;
+  background-color:#DEFFDD;
+}
+
+.header_list{
+  margin-right: 25px;
+  color: #EFEDED;
+  background-color: #DEFFDD;
+  font-weight: bold;
+  font-size: 15pt;
+}
+
+// --------------------------main-------------------------------------
+main{
+  background-color:  #64a162;
+}
+
+// --------------------------footer-------------------------------------
+.footer_section{
+  background-color: #906121;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.footer_comment{
+    color: #EFEDED;
+    margin-left: 75px;
+    padding-top: 30px;
+    letter-spacing: 3px;
+}
+
+.footer_item{
+  margin-right: 75px;
+  display: flex;
+  padding-top: 30px;
+
+}
+
+.footer_list{
+  margin-right: 25px;
+  color: #EFEDED;
+  letter-spacing: 3px;
+}
