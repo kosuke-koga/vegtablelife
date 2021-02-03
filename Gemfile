@@ -31,6 +31,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+   %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
+  end
+  # gem "factory_bot_rails", "~> 4.10.0"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
@@ -45,6 +49,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'rubocop', require: false
   gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
