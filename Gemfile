@@ -36,7 +36,9 @@ group :development, :test do
   end
   # gem "factory_bot_rails", "~> 4.10.0"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'factory_bot_rails', "~>4.10.0"
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'launchy', '~> 2.4.3'
 end
 
 group :development do
