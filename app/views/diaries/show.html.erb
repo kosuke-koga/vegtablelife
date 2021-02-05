@@ -1,0 +1,16 @@
+<% d = @diary %>
+  <%= render partial:"diaries", locals:{ d: d } %>
+  <%= d.text %>
+
+  <% if @comments %>
+    <% @comments.each do |c| %>
+      <%= c.comment %>
+    <% end %>
+  <% end %>
+
+  <%= form_with model: [@diary, @comment] do |form| %>
+   <div class="comment_create">
+     <p><label>コメントを入力してください <%= form.text_field :comment %></label></p>
+     <%= form.submit %>
+   </div>
+  <% end %>

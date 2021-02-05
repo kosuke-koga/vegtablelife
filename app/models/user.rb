@@ -10,5 +10,6 @@ class User < ApplicationRecord
   validates :text, length: { maximum: 100}
 
   has_many :diaries, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end
 
