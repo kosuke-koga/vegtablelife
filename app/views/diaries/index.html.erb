@@ -1,18 +1,9 @@
-hello
+<% if user_signed_in? %>
 <div>
 <%= link_to "投稿する", new_diary_path, method: :get %>
 </div>
+<% end %>
 
 <% @diaries.each do |d| %>
-  <%= d.vegtable %>
-  <%= d.action %>
-  <% if d.avatar?  %>
-    <%= image_tag d.avatar.url  %>
-  <% end %>
-  <%= d.text %>
-  <%= d.date %>
-  <p>-------------------------</p>
+  <%= render partial:"diaries", locals:{ d: d } %>
 <% end %>
-<%# <div>
-<p><label>検索できます<input type="search" name="search" maxlength=10></label></p>
-</div> %>

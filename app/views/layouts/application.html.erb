@@ -22,7 +22,7 @@
              <%# link_to "マイページ", user_path(current_user.id),method: :get  %>
           <%# </li> %>
           <li class="header_list">
-            <%= link_to "ログアウト", destroy_user_session_path,method: :delete %>
+            <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
           </li>
           <% else %>
           <li class="header_list">
@@ -46,7 +46,7 @@
           <p>Copyright©️2021</p>
         </div>
         <ul class="footer_item">
-          <li><a href="" class="footer_list">Twetter</a></li>
+          <li><a href="" class="footer_list">Twitter</a></li>
           <li><a href="" class="footer_list">Qitta</a></li>
         </ul>
       </div> 
