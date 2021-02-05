@@ -18,9 +18,9 @@
         </div>
         <ul class="header_category">
           <% if user_signed_in? %>
-          <%# <li class="header_list"> %>
-             <%# link_to "マイページ", user_path(current_user.id),method: :get  %>
-          <%# </li> %>
+          <li class="header_list">
+            <%= link_to "マイページ", user_path(current_user.id),method: :get  %>
+          </li>
           <li class="header_list">
             <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
           </li>

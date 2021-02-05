@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :diaries do
     resources :comments,only: [:new, :create]
   end
+  resources :users
 end
