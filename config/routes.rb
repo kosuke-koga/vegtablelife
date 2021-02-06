@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     resources :comments,only: [:new, :create]
   end
   resources :users
+  resources :tasks,except: :show
 end
