@@ -1,10 +1,1 @@
-<%= form_with model: @diary do |form| %>
-  <div class="diaries_create">
-    <p><label>日付を入力してください <%= form.date_select :date %></label></p>
-    <p><label>野菜を選択して下さい <%= form.text_field :vegtable %></label></p>
-    <p><label>作業内容を入力して下さい <%= form.text_field :action %></label></p>
-    <p><label>画像をアップロードして下さい <%= form.file_field :avatar %></label></p>
-    <p><label>日記を入力して下さい <%= form.text_area :text %></label></p>
-    <%= form.submit %>
-  </div>
-<% end %>
+ <%= render partial:"new" %>

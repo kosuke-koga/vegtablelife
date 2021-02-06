@@ -8,10 +8,12 @@
     <% end %>
   <% end %>
 
+ <% if user_signed_in? %>
   <%= form_with model: [@diary, @comment] do |form| %>
    <div class="comment_create">
      <p><label>コメントを入力してください <%= form.text_field :comment %></label></p>
      <%= form.submit %>
    </div>
   <% end %>
+<% end %>
 

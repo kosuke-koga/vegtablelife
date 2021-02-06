@@ -21,6 +21,22 @@ class DiariesController < ApplicationController
     @comment = Comment.new
   end
 
+  def edit
+    @diary = Diary.find(params[:id])
+  end
+
+  def update
+    diary = Diary.find(params[:id])
+    diary.update(diary_params)
+    redirect_to "/"
+  end
+
+  def destroy
+    @diary = Diary.find(params[:id])
+    @diary.destroy
+    redirect_to "/"
+  end
+
   private
 
   def diary_params
