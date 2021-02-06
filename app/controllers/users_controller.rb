@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(current_user.id)
-    @diaries = @user.diaries
+    @diaries = @user.diaries.order("id DESC").page(params[:page]).per(5)
   end
 
   def create
