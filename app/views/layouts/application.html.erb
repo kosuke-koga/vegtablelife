@@ -26,6 +26,9 @@
           </li>
           <% else %>
           <li class="header_list">
+            <%= link_to "ゲストログイン",users_guest_sign_in_path,method: :post %>
+          </li>
+          <li class="header_list">
             <%= link_to "ログイン",new_user_session_path,method: :get %>
           </li>
           <li class="header_list">
