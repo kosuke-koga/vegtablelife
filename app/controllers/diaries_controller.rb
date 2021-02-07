@@ -37,6 +37,10 @@ class DiariesController < ApplicationController
     redirect_to "/"
   end
 
+  def atunou_index
+    @atunou_diaries = Diary.where(user_id: 3).or(Diary.where(user_id: 4)).order("id DESC").page(params[:page]).per(5)
+  end
+
   private
 
   def diary_params

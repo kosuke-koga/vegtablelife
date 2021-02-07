@@ -1,0 +1,7 @@
+ <% @user.each do |d| %> 
+   <% if d.icon? %>
+    <%= image_tag d.icon.url %>
+   <% end %>
+   <%= d.name %>
+   <%= d.text %>
+ <% end %>

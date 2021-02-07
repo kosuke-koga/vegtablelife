@@ -20,6 +20,9 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
+  def index
+    @user = User.find(3,4)
+  end
 
   private
   def user_params
