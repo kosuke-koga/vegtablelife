@@ -2,7 +2,8 @@
 
 class DiariesController < ApplicationController
   def index
-    @diaries = Diary.all.order("id DESC").page(params[:page]).per(5)
+    @search_params = diary_search_params
+    @diaries = Diary.all.order("id DESC").page(params[:page]).per(5).search(@search_params)
   end
 
   def new
@@ -42,6 +43,10 @@ class DiariesController < ApplicationController
   end
 
   private
+
+  def diary_search_params
+    params.fetch(:search, {}).permit(:vegtable)
+  end
 
   def diary_params
     params.require(:diary).permit(:vegtable, :action, :image, :text, :date, :avatar).merge(user_id: current_user.id)

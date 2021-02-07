@@ -1,0 +1,13 @@
+<% @diaries.each do |d| %>
+  <%= d.vegtable %>
+  <%= d.action %>
+  <% if d.avatar?  %>
+    <%= image_tag d.avatar.url  %>
+  <% end %>
+  <%= d.date %>
+  <%= link_to "詳細", diary_path(d.id), method: :get %>
+  <% if user_signed_in? && current_user.id == d.user_id %>
+    <%= link_to "更新", edit_diary_path(d.id),method: :get %>
+    <%= link_to "削除", diary_path(d.id), method: :delete %>
+  <% end %>
+<% end %>
