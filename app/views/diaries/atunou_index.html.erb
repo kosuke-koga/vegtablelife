@@ -1,0 +1,4 @@
+ <% @atunou_diaries.each do |d| %>
+    <%= render partial:"diaries", locals: { d: d } %>
+ <% end %>
+ <%= paginate(@atunou_diaries) %> 

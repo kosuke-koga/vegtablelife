@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :users
   resources :tasks,except: :show
   resources :infomations
+
+  get '/atunou', to: 'diaries#atunou_index'
 end
