@@ -1,0 +1,10 @@
+hello
+<% @infomations.each do |f| %>
+  <%= f.title %>
+  <%= f.info %>
+  <% if current_user.id == 7 %>
+    <%= link_to "編集", edit_infomation_path(f.id), method: :get %>
+    <%= link_to "削除", infomation_path(f.id), method: :delete %>
+  <% end %>
+<% end %>
+<%= paginate(@infomations) %>
