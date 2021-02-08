@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(current_user.id)
     @diaries = @user.diaries.order("id DESC").page(params[:page]).per(5)
+
+    bookmarks = Bookmark.where(user_id: current_user.id).pluck(:diary_id)
+    @bookmark_list = Bookmark.find(bookmarks) 
   end
 
   def create
