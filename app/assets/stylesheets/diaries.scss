@@ -70,6 +70,77 @@ main{
   background-color:  #deffdd;
 }
 
+.diary_list{
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.diary_item{
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 20px;
+}
+
+.diary_avatar{
+  display: flex;
+  justify-content: center;
+}
+
+.diary_veg{
+  font-weight: bold;
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+.diary_action{
+  font-weight: bold;
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+.diary_date{
+  font-weight: bold;
+  margin-top: 70px;
+  margin-left: 100px;
+  font-size: 15px;
+}
+
+.diary_next_action{
+  margin-left: 30px;
+  a:link{
+    color: #000000;
+  }
+  a:visited{
+    color: #000000;
+  }
+}
+
+.diary_show{
+  background-color: #cdd866;
+  padding: 10px 30px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.diary_update{
+  background-color: #cdd866;
+  padding: 10px 30px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.diary_destroy{
+  background-color: #cdd866;
+  padding: 10px 30px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
 // --------------------------footer-------------------------------------
 .footer_section{
   background-color: #906121;
@@ -96,4 +167,51 @@ main{
   margin-right: 25px;
   color: #EFEDED;
   letter-spacing: 3px;
+}
+
+// --------------------------show.html.erb------------------------------------
+#open, #close{
+  cursor: pointer;
+  width: 200px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  text-align: center;
+  padding: 12px 0;
+  margin: 16px auto 0;
+}
+
+.comment{
+  background-color: antiquewhite;
+}
+
+#mask{
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+#modal{
+  background: #fff;
+  width: 300px;
+  padding: 20px;
+  border-radius: 4px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transition: transform 0.4s;
+  z-index: 2;
+}
+
+#mask.hidden{
+  display: none;
+}
+
+#modal.hidden{
+  transform: translate(0, -500px);
 }
