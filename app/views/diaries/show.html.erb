@@ -9,11 +9,19 @@
   <% end %>
 
  <% if user_signed_in? %>
-  <%= form_with model: [@diary, @comment] do |form| %>
-   <div class="comment_create">
-     <p><label>コメントを入力してください <%= form.text_field :comment %></label></p>
-     <%= form.submit %>
+   <div class="comment" id="open">
+    <p>コメントを書く</p>
    </div>
-  <% end %>
-<% end %>
+   <section id ="modal" class="hidden">
+    <%= form_with model: [@diary, @comment] do |form| %>
+     <div class="comment_create">
+       <p><label>コメントを入力してください <%= form.text_field :comment %></label></p>
+       <%= form.submit %>
+     </div>
+    <% end %>
+    <div id="close">close</div>
+   </section>
+   <div id="mask" class="hidden"></div>
+ <% end %>
+ <%= javascript_pack_tag 'diary/application' %>
 
