@@ -9,7 +9,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(tasks_params)
+    @user = User.find(params[:current_user.id])
+    @task = @user.tasks.build(tasks_params)
     @task.save
     redirect_back fallback_location: @task_url
   end
