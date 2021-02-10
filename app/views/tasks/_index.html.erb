@@ -1,0 +1,25 @@
+<div class="task_modal task_content" id="task_all">
+  <ul class="task_list">
+    <li class="task_list_item">やる予定</li>
+    <li class="task_list_item">これからやる予定</li>
+    <li class="task_list_item">終わったこと</li>
+  </ul>
+
+  <div class="task_card" >
+    <% if @cards != nil %>
+        <% @cards.each do |t| %>
+          <%= t.date %>
+          <%= t.card %>
+          <%= link_to "削除", task_path(t.id), method: :delete %>
+        <% end %>
+    <% end %>
+    <p>作業内容を追加</p>
+      <%= form_with model: @task do |form| %>
+        <div>
+          <p><label>期限 <%= form.date_select :date %></label></p>
+          <%= form.text_field :card, placeholder: "作業内容" %>
+          <%= form.submit "登録" %>
+        </div>
+      <% end %>
+  </div>
+</div>
