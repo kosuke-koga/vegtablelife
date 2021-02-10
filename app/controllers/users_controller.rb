@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
     bookmarks = Bookmark.where(user_id: current_user.id).pluck(:diary_id)
     @bookmark_list = Bookmark.find(bookmarks) 
+    @cards = Task.includes(:user).where(user_id: current_user.id)
   end
 
   def create
