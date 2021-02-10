@@ -33,7 +33,7 @@
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </li>
           <% else %>
-          <li class="header_list">
+          <li class="header_list guest">
             <%= link_to "ゲストログイン",users_guest_sign_in_path,method: :post %>
           </li>
           <li class="header_list">
@@ -56,8 +56,8 @@
           <p>Copyright©️2021</p>
         </div>
         <ul class="footer_item">
-          <li><a href="" class="footer_list">Twitter</a></li>
-          <li><a href="" class="footer_list">Qitta</a></li>
+          <li><a href="https://twitter.com/FivIdPgFeLKuBya" class="footer_list">Twitter</a></li>
+          <li><a href="https://qiita.com/kosuke1173" class="footer_list">Qiita</a></li>
         </ul>
       </div> 
     </footer>
