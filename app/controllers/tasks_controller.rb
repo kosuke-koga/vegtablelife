@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @task = Task.new
+    @tasks = Task.all
     @cards = Task.includes(:user).where(user_id: current_user.id)
   end
 
@@ -9,8 +9,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:current_user.id])
-    @task = @user.tasks.build(tasks_params)
+    @task = Task.new(tasks_params)
     @task.save
     redirect_back fallback_location: @task_url
   end
