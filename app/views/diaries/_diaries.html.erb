@@ -1,12 +1,24 @@
-  <%= d.vegtable %>
-  <%= d.action %>
-  <% if d.avatar?  %>
-    <%= image_tag d.avatar.url  %>
-  <% end %>
-  <%= d.date %>
-  <%= link_to "詳細", diary_path(d.id), method: :get %>
-  <% if user_signed_in? && current_user.id == d.user_id %>
-    <%= link_to "更新", edit_diary_path(d.id),method: :get %>
-    <%= link_to "削除", diary_path(d.id), method: :delete %>
-  <% end %>
+ <div class="diary_list">
+    <div class="diary_item">
+    <% if d.user.icon? %>
+      <%= image_tag d.user.icon.url, class: "icon diary_icon" %>
+    <% end %>
+     
+        <div class="diary_veg"><%= d.vegtable %></div>
+        <div class="diary_action"><%= d.action %></div>
+        <div class="diary_date"><%= d.date %></div>
+    </div>
+      <div class="diary_avatar">
+        <% if d.avatar?  %>
+          <%= image_tag d.avatar.url  %>
+        <% end %>
+        <ul class="diary_next_action">
+          <li class="diary_show"><%= link_to "詳　細", diary_path(d.id), method: :get %></li>
+          <% if user_signed_in? && current_user.id == d.user_id %>
+            <li class="diary_update"><%= link_to "更　新", edit_diary_path(d.id),method: :get %></li>
+            <li class="diary_destroy"><%= link_to "削　除", diary_path(d.id), method: :delete %></li>
+          <% end %>
+        </ul>
+      </div>
+</div>
  
