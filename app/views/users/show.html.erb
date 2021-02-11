@@ -1,12 +1,33 @@
-<% if @user.icon? %>
-  <%= image_tag @user.icon.url %>
-<% end %>
-<%= @user.name %>
-<%= @user.text %>
+ <div class="mypage">
+  <div class="user_show">
+    <div class="user_show_icon">
+      <% if @user.icon? %>
+        <%= image_tag @user.icon.url, class: "icon" %>
+      <% end %>
+    </div>
+    <div class="user_show_name"><%= @user.name %></div>
+    <div class="user_show_text"><%= @user.text %></div>
 
-<%= link_to "プロフィールを編集", edit_user_path, method: :get %>
-<%= link_to "タスクを見る", tasks_path, metod: :get %>
-<% @diaries.each do |d| %>
-  <%= render partial:"/diaries/diaries", locals:{ d: d } %>
-<% end %>
- <%= paginate(@diaries) %>
+    <div id="user_show_open">
+      <p>プロフィールを編集</p>
+    </div>
+    <%= render partial: "edit" %>
+    <%= javascript_pack_tag 'user/application' %>
+  </div>
+  <div class="task_diary">
+    <div class="task_diary2">
+      <div class="task_open active" data-id="diary_all"> 日記を見る</div>
+      <div class="task_open" data-id="task_all">タスクを見る</div>
+    </div>
+    <div class="task_modal active" id="diary_all">
+      <% @diaries.each do |d| %>
+        <%= render partial:"/diaries/diaries", locals:{ d: d } %>
+      <% end %>
+    <%= paginate(@diaries) %>
+    </div>
+    <div class="task">
+      <%= render partial:"/tasks/index" %>
+    </div>
+    <%= javascript_pack_tag 'task/application' %>
+  </div>
+</div>
