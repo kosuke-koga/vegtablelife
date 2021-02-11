@@ -58,18 +58,105 @@ a {
 }
 
 .header_list{
+  cursor: pointer;
   margin-right: 25px;
-  color: #EFEDED;
-  background-color: #DEFFDD;
+  background-color: #83a749;
   font-weight: bold;
   font-size: 15pt;
+  width: 110px;
+  text-align: center;
+  padding-top: 10px;
+  border-radius: 20px;
+  a:link{
+    color: #cde8e9;
+  }
+
+  a:visited{
+    color: #cde8e9;
+  }
+}
+
+.guest{
+  font-size: 10pt;
+  padding-top: 15px;
 }
 
 // --------------------------main-------------------------------------
 main{
-  background-color:  #64a162;
+  background-color:  #deffdd;
 }
 
+.diary_list{
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.diary_item{
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 20px;
+}
+
+.diary_avatar{
+  display: flex;
+  justify-content: center;
+}
+
+.diary_veg{
+  font-weight: bold;
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+.diary_action{
+  font-weight: bold;
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+.diary_date{
+  font-weight: bold;
+  margin-top: 70px;
+  margin-left: 100px;
+  font-size: 15px;
+}
+
+.diary_next_action{
+  margin-left: 30px;
+  a:link{
+    color: #83a749;
+  }
+  a:visited{
+    color: #83a749;
+  }
+}
+
+.diary_show{
+  background-color: #cdd866;
+  padding: 10px 30px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.diary_update{
+  background-color: #cdd866;
+  padding: 10px 30px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.diary_destroy{
+  background-color: #cdd866;
+  padding: 10px 30px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
 // --------------------------footer-------------------------------------
 .footer_section{
   background-color: #906121;
@@ -97,3 +184,146 @@ main{
   color: #EFEDED;
   letter-spacing: 3px;
 }
+
+// --------------------------show.html.erb------------------------------------
+.comment_all{
+  padding-bottom: 30px;
+}
+
+#open{
+  cursor: pointer;
+  width: 200px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  text-align: center;
+  padding: 12px 0;
+  margin-left: 550px;
+  margin-top: 10px;
+  background-color: antiquewhite;
+}
+
+#close{
+  cursor: pointer;
+  width: 200px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  text-align: center;
+  padding: 12px 0;
+  margin: 16px auto 0;
+  background-color: rgb(247, 214, 171);
+}
+
+#mask{
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+#modal{
+  background:antiquewhite;
+  width: 700px;
+  padding: 20px;
+  border-radius: 4px;
+  position: absolute;
+  top: 240px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transition: transform 0.4s;
+  z-index: 2;
+}
+
+#mask.hidden{
+  display: none;
+}
+
+#modal.hidden{
+  transform: translate(0, -1000px);
+}
+
+.comment-text{
+  width: 600px;
+  height: 100px;
+  border: 1px solid #000000;
+  margin-left: 350px;
+  background:#cde8e9;
+}
+
+.comment{
+  width: 600px;
+  height: 60px;
+  border: 1px solid #000000;
+  margin-left: 350px;
+  background:antiquewhite;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+// --------------------------search------------------------------------
+
+.search{
+  text-align: right;
+  margin-right: 200px;
+}
+
+// --------------------------new------------------------------------
+
+#new_open{
+  cursor: pointer;
+  width: 150px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 12px 0;
+  background-color: #83a749;
+  margin-left: 300px;
+  text-align: center;
+  color: #cde8e9;
+}
+
+#new_close{
+  cursor: pointer;
+  width: 200px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  text-align: center;
+  padding: 12px 0;
+  margin: 16px auto 0;
+  background: #35d4da;
+}
+
+#new_mask{
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+#new_modal{
+  background:#cde8e9;
+  width: 800px;
+  padding: 20px;
+  border-radius: 4px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transition: transform 0.4s;
+  z-index: 2;
+}
+
+#new_mask.hidden{
+  display: none;
+}
+
+#new_modal.hidden{
+  transform: translate(0, -1500px);
+}
+
