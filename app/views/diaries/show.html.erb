@@ -1,19 +1,29 @@
 <% d = @diary %>
   <%= render partial:"diaries", locals:{ d: d } %>
-  <%= d.text %>
+  <div class="comment-text"><%= d.text %></div>
 
-  <% if @comments %>
-    <% @comments.each do |c| %>
-      <%= c.comment %>
+<div class="comment_all">
+  <% if user_signed_in? %>
+    <div id="open">
+      <p>コメントを書く</p>
+    </div>
+    <section id ="modal" class="hidden">
+      <%= form_with model: [@diary, @comment] do |form| %>
+      <div class="comment_create">
+        <p><label>コメントを入力してください <%= form.text_area :comment, size:"80x10" %></label></p>
+        <%= form.submit "送信" %>
+      </div>
+      <% end %>
+      <div id="close">close</div>
+    </section>
+    <div id="mask" class="hidden"></div>
+  <% end %>
+
+    <% if @comments %>
+      <% @comments.each do |c| %>
+        <div class="comment"><%= c.comment %></div>
+      <% end %>
     <% end %>
-  <% end %>
-
- <% if user_signed_in? %>
-  <%= form_with model: [@diary, @comment] do |form| %>
-   <div class="comment_create">
-     <p><label>コメントを入力してください <%= form.text_field :comment %></label></p>
-     <%= form.submit %>
-   </div>
-  <% end %>
-<% end %>
+</div>
+ <%= javascript_pack_tag 'diary/application' %>
 
