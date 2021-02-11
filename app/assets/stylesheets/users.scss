@@ -1,3 +1,77 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.user_show{
+  margin-left: 75px;
+}
+
+.user_show_name{
+  margin: 5px 0;
+}
+
+.user_show_text{
+  width: 200px;
+  margin-bottom: 5px;
+}
+
+.icon{
+  border-radius: 50%;
+}
+
+#user_show_open{
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12pt;
+  width: 170px;
+  background-color: #83a749;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 17px;
+  color: #cde8e9;
+}
+
+#user_show_mask{
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#user_show_modal{
+  position: absolute;
+  top: 80px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  border: 1px solid #000000;
+  width: 500px;
+  padding: 20px;
+  z-index: 2;
+  transition: transform 0.4s;
+  background-color:#cde8e9;
+}
+
+#user_show_close{
+  text-align: center;
+  margin-left: 150px;
+  width: 80px;
+  background-color: #35d4da;
+}
+
+#user_show_mask.hidden{
+  display: none;
+}
+
+#user_show_modal.hidden{
+  transform: translate(0, -1500px);
+}
+
+
