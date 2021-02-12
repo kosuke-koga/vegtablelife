@@ -3,6 +3,7 @@
 class Diary < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   mount_uploader :avatar, AvatarUploader
 
   validates :action, presence: true
