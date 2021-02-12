@@ -1,5 +1,5 @@
 <% d = @diary %>
-  <%= render partial:"diaries", locals:{ d: d } %>
+  <%= render partial:"/diaries/diaries", locals:{ d: d } %>
   <div class="comment-text"><%= d.text %></div>
 
 <div class="comment_all">

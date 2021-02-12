@@ -10,6 +10,8 @@
 
 
 <% @diaries.each do |d| %>
-  <%= render partial:"diaries", locals:{ d: d } %>
+  <tr id="diary_<%= d.id %>">
+    <%= render partial: "/diaries/diaries", locals: { d: d }  %>
+  </tr>
 <% end %>
  <%= paginate(@diaries) %>

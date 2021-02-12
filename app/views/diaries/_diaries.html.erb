@@ -14,9 +14,16 @@
         <% end %>
         <ul class="diary_next_action">
           <li class="diary_show"><%= link_to "詳　細", diary_path(d.id), method: :get %></li>
-          <% if user_signed_in? && current_user.id == d.user_id %>
-            <li class="diary_update"><%= link_to "更　新", edit_diary_path(d.id),method: :get %></li>
-            <li class="diary_destroy"><%= link_to "削　除", diary_path(d.id), method: :delete %></li>
+          <% if user_signed_in? %>
+            <% if current_user.id == d.user_id %>
+              <li class="diary_update"><%= link_to "更　新", edit_diary_path(d.id),method: :get %></li>
+              <li class="diary_destroy"><%= link_to "削　除", diary_path(d.id), method: :delete %></li>
+            <% end %>
+            <% if current_user.liked_by?(d.id) %>
+              <td><%= link_to "いいねを外す", destroy_like_path(d), method: :DELETE %> <%= d.likes.count %></td>
+            <% else %>
+              <td><%= link_to "いいね", create_like_path(d), method: :POST %> <%= d.likes.count %></td>
+            <% end %>
           <% end %>
         </ul>
       </div>
