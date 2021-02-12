@@ -2,11 +2,11 @@
 <%= render partial: "search" %>
 <% if user_signed_in? %>
 <div id="new_open">
-  <p>投稿する</p>
+  <p>
+    <%= link_to "投稿する", new_diary_path,method: :get %>
+  </p>
 </div>
-<%= render partial:"new" %>
 <% end %>
-<%= javascript_pack_tag 'new/application' %>
 
 
 <% @diaries.each do |d| %>
