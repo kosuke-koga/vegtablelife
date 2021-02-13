@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :questions, dependent: :destroy
+  has_many :answers, dependent: :destroy
 
   def liked_by?(diary_id)
     likes.where(diary_id: diary_id).exists?

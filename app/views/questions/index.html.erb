@@ -1,4 +1,6 @@
 <% @questions.each do |d| %>
  <%= d.title %>
  <%= d.question %>
+ <%= link_to "熟練農家の回答", question_path(d.id), method: :get %>
 <% end %>
+

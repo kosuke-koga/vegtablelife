@@ -1,0 +1,27 @@
+<%= @question.title %>
+<%= @question.question %>
+
+<div class="comment_all">
+  <% if current_user.id == 3 %>
+    <div id="open">
+      <p>Answerを書く</p>
+    </div>
+    <section id ="modal" class="hidden">
+      <%= form_with model: [ @question, @answer] do |form| %>
+      <div class="comment_create">
+        <p><label>コメントを入力してください <%= form.text_area :answer, size:"80x10" %></label></p>
+        <%= form.submit "送信" %>
+      </div>
+      <% end %>
+      <div id="close">close</div>
+    </section>
+    <div id="mask" class="hidden"></div>
+  <% end %>
+
+    <% if @answers %>
+      <% @answers.each do |c| %>
+        <div class="comment"><%= c.answer %></div>
+      <% end %>
+    <% end %>
+</div>
+ <%= javascript_pack_tag 'diary/application' %>

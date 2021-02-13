@@ -5,6 +5,12 @@ class QuestionsController < ApplicationController
     @questions = Question.all.order("id DESC")
   end
 
+  def show
+    @question = Question.find(params[:id])
+    @answers = @question.answers.includes(:user)
+    @answer = Answer.new
+  end
+
   def new
     @question = Question.new
   end
