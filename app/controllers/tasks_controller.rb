@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TasksController < ApplicationController
   def index
     @task = Task.new
@@ -31,8 +33,8 @@ class TasksController < ApplicationController
   end
 
   private
+
   def tasks_params
     params.permit(:list, :card, :date).merge(user_id: current_user.id)
   end
-
 end

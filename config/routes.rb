@@ -9,14 +9,14 @@ Rails.application.routes.draw do
 
   root 'diaries#index'
   resources :diaries do
-    resources :comments,only: [:new, :create]
+    resources :comments, only: %i[new create]
   end
   resources :users
-  resources :tasks,except: :show
+  resources :tasks, except: :show
   resources :infomations
 
-  resources :questions,except: [:update, :edit, :destroy] do
-    resources :answers,only: [:new, :create]
+  resources :questions, except: %i[update edit destroy] do
+    resources :answers, only: %i[new create]
   end
 
   get '/atunou', to: 'diaries#atunou_index'

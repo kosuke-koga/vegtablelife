@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class DiariesController < ApplicationController
-  before_action :move_to_index, except: [:index, :atunou_index, :show]
+  before_action :move_to_index, except: %i[index atunou_index show]
 
   def index
     @search_params = diary_search_params
-    @diaries = Diary.all.order("id DESC").page(params[:page]).per(5).search(@search_params)
+    @diaries = Diary.all.order('id DESC').page(params[:page]).per(5).search(@search_params)
   end
 
   def new
@@ -31,17 +31,17 @@ class DiariesController < ApplicationController
   def update
     diary = Diary.find(params[:id])
     diary.update(diary_params)
-    redirect_to "/"
+    redirect_to '/'
   end
 
   def destroy
     @diary = Diary.find(params[:id])
     @diary.destroy
-    redirect_to "/"
+    redirect_to '/'
   end
 
   def atunou_index
-    @atunou_diaries = Diary.where(user_id: 3).or(Diary.where(user_id: 4)).order("id DESC").page(params[:page]).per(5)
+    @atunou_diaries = Diary.where(user_id: 3).or(Diary.where(user_id: 4)).order('id DESC').page(params[:page]).per(5)
   end
 
   private

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def show
     @user = User.find(current_user.id)
-    @diaries = @user.diaries.order("id DESC").page(params[:page]).per(5)
+    @diaries = @user.diaries.order('id DESC').page(params[:page]).per(5)
     @cards = Task.includes(:user).where(user_id: current_user.id)
   end
 
@@ -22,12 +24,12 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = User.find(3,4)
+    @user = User.find(3, 4)
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :text, :icon)
   end
-
 end

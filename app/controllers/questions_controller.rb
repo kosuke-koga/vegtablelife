@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class QuestionsController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @questions = Question.all.order("id DESC")
+    @questions = Question.all.order('id DESC')
   end
 
   def show
@@ -18,10 +20,11 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.save
-    redirect_to "/"
+    redirect_to '/'
   end
 
   private
+
   def question_params
     params.require(:question).permit(:title, :question).merge(user_id: current_user.id)
   end

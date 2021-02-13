@@ -9,11 +9,11 @@ class Diary < ApplicationRecord
   validates :action, presence: true
   validates :date, presence: true
 
-  scope :search, -> (search_params) do
+  scope :search, lambda { |search_params|
     return if search_params.blank?
+
     vegtable_like(search_params[:vegtable])
-  end
+  }
 
-  scope :vegtable_like, -> (vegtable) {where('vegtable LIKE ?', "%#{vegtable}") if vegtable.present? }
-
+  scope :vegtable_like, ->(vegtable) { where('vegtable LIKE ?', "%#{vegtable}") if vegtable.present? }
 end

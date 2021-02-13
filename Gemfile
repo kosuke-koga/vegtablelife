@@ -31,13 +31,13 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-   %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
     gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
   end
   # gem "factory_bot_rails", "~> 4.10.0"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'factory_bot_rails', "~>4.10.0"
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails', '~>4.10.0'
   gem 'launchy', '~> 2.4.3'
 end
 
@@ -68,7 +68,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'carrierwave', '~> 2.0'
 gem 'devise'
 gem 'hirb'
-gem 'pry-rails'
-gem 'sprockets', '4.0.2'
 gem 'kaminari'
 gem 'mini_magick'
+gem 'pry-rails'
+gem 'sprockets', '4.0.2'

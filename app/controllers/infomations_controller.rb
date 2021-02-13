@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 class InfomationsController < ApplicationController
   def index
-    @infomations = Infomation.all.order("id DESC").page(params[:page]).per(10)
+    @infomations = Infomation.all.order('id DESC').page(params[:page]).per(10)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @infomation = Infomation.new
@@ -29,12 +30,12 @@ class InfomationsController < ApplicationController
   def destroy
     @infomation = Infomation.find(params[:id])
     @infomation.destroy
-    redirect_to "/"
+    redirect_to '/'
   end
 
   private
-    def infomation_params
-      params.require(:infomation).permit(:title, :info)
-    end
 
+  def infomation_params
+    params.require(:infomation).permit(:title, :info)
+  end
 end

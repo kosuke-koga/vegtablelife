@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   mount_uploader :icon, IconUploader
 
-  validates :name, presence: true, length: { minimum: 2,maximum: 20}
-  validates :text, length: { maximum: 100}
+  validates :name, presence: true, length: { minimum: 2, maximum: 20 }
+  validates :text, length: { maximum: 100 }
 
   has_many :diaries, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -22,4 +22,3 @@ class User < ApplicationRecord
     likes.where(diary_id: diary_id).exists?
   end
 end
-
