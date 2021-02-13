@@ -5,7 +5,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
+// ----------------user.show.html.erb---------------------------
 .user_show{
   margin-left: 75px;
 }
@@ -74,4 +74,23 @@
   transform: translate(0, -1500px);
 }
 
+// ----------------user.signup---------------------------
+.content_box{
+  padding-bottom: 150px;
+  padding-top: 100px;
+}
 
+.content_row{
+  width: 450px;
+  height: 350px;
+  box-shadow: 2px 2px 4px gray;
+  margin: 0px auto 0;
+  padding: 30px 30px;
+  background-color: #cde8e9;
+}
+
+.actions{
+  margin-top: 10px;
+}
+
+// ----------------熟練農家紹介---------------------------

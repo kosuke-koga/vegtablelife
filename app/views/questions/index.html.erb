@@ -1,6 +1,8 @@
-<% @questions.each do |d| %>
- <%= d.title %>
- <%= d.question %>
- <%= link_to "熟練農家の回答", question_path(d.id), method: :get %>
-<% end %>
+<div class="question">
+  <% @questions.each do |d| %>
+  <div class="question_index_title"><%= d.title %></div>
+  <div class="question_index_question"><%= d.question %></div>
+  <div class="question_index_answer"><%= link_to "熟練農家の回答", question_path(d.id), method: :get %></div>
+  <% end %>
+</div>
 
