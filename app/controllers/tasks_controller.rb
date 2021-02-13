@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @task = Task.new
+    @tasks = Task.all
     @cards = Task.includes(:user).where(user_id: current_user.id)
   end
 
