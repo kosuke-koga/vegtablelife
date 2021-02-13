@@ -1,14 +1,15 @@
 <%= render partial: "atunou" %>
+<%= render partial: "/questions/questions" %>
 <%= render partial: "search" %>
-<% if user_signed_in? %>
+
 <div id="new_open">
+  <p>
+    <%= link_to "質問する",  new_question_path,method: :get %>
+  </p>
   <p>
     <%= link_to "投稿する", new_diary_path,method: :get %>
   </p>
 </div>
-<%= render partial:"new" %>
-<% end %>
-<%= javascript_pack_tag 'new/application' %>
 
 
 
