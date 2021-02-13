@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class DiariesController < ApplicationController
+  before_action :move_to_index, except: [:index, :atunou_index, :show]
+
   def index
     @search_params = diary_search_params
     @diaries = Diary.all.order("id DESC").page(params[:page]).per(5).search(@search_params)
@@ -50,5 +52,9 @@ class DiariesController < ApplicationController
 
   def diary_params
     params.require(:diary).permit(:vegtable, :action, :image, :text, :date, :avatar).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :tasks,except: :show
   resources :infomations
 
+  resources :questions,except: [:show, :update, :edit, :destroy]
+
   get '/atunou', to: 'diaries#atunou_index'
 
   post 'like/:id' => 'likes#create', as: 'create_like'
