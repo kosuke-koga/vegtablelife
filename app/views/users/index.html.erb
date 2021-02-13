@@ -1,7 +1,11 @@
- <% @user.each do |d| %> 
-   <% if d.icon? %>
-    <%= image_tag d.icon.url %>
-   <% end %>
-   <%= d.name %>
-   <%= d.text %>
- <% end %>
+<div class="user_index_wrapper">
+  <div class="user_index_content">
+    <% @user.each do |d| %> 
+      <% if d.icon? %>
+        <div class="user_index_icon"><%= image_tag d.icon.url %></div>
+      <% end %>
+      <div class="user_index_name"><%= d.name %></div>
+      <div class="user_index_text"><%= d.text %></div>
+    <% end %>
+  </div>
+</div>

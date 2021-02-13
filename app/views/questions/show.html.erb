@@ -1,5 +1,7 @@
-<%= @question.title %>
-<%= @question.question %>
+<div class="question">
+  <div class="question_index_title"><%= @question.title %></div>
+  <div class="question_index_question"><%= @question.question %></div>
+</div>
 
 <div class="comment_all">
   <% if current_user.id == 3 %>
@@ -20,7 +22,7 @@
 
     <% if @answers %>
       <% @answers.each do |c| %>
-        <div class="comment"><%= c.answer %></div>
+        <div class="question_answer"><%= c.answer %></div>
       <% end %>
     <% end %>
 </div>

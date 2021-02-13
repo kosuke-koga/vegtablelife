@@ -1,14 +1,16 @@
-<%= render partial: "atunou" %>
-<%= render partial: "/questions/questions" %>
-<%= render partial: "search" %>
+<div class="index_content">
+  <%= render partial: "atunou" %>
+  <%= render partial: "/questions/questions" %>
+</div>
+  <%= render partial: "search" %>
 
 <div id="new_open">
-  <p>
-    <%= link_to "質問する",  new_question_path,method: :get %>
-  </p>
-  <p>
+  <div class="new_question">
+    <%= link_to "質問してみる",  new_question_path,method: :get %>
+  </div>
+  <div class="new_diary">
     <%= link_to "投稿する", new_diary_path,method: :get %>
-  </p>
+  </div>
 </div>
 
 

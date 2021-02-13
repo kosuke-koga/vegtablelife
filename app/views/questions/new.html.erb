@@ -1,5 +1,9 @@
- <%= form_with model: @question do |form| %>
-  <%= form.text_field :title %>
-  <%= form.text_area :question %>
-  <%= form.submit %>
- <% end %>
+<div class="new_question_box">
+  <div class="new_question_content">
+    <%= form_with model: @question do |form| %>
+      <div class="question_title"><label>質問のタイトルを入力してください<br><%= form.text_field :title, size:"80" %></label></div>
+      <div class="question_question"><label>質問内容<br><%= form.text_area :question, size:"80x10" %></label></div>
+      <div class="question_submit"><%= form.submit "質問を送る" %></div>
+    <% end %>
+  </div>
+</div>
