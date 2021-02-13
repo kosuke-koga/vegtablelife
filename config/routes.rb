@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   root 'diaries#index'
   resources :diaries do
     resources :comments,only: [:new, :create]
+    resources :bookmarks,only: [:create, :destroy]
   end
-  resources :users
+  resources :users do
+    get :bookmarks, on: :collection
+  end
   resources :tasks,except: :show
   resources :infomations
 
