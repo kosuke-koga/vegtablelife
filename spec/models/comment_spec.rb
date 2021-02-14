@@ -24,4 +24,24 @@ RSpec.describe Comment, type: :model do
     comment = FactoryBot.build(:comment, comment: 'a' * 50)
     expect(comment).to be_valid
   end
+
+  describe 'Association' do
+    let(:association) do
+      described_class.reflect_on_association(comment)
+    end
+
+    context 'user' do
+      let(:comment) { :user }
+
+      it { expect(association.macro).to eq :belongs_to }
+      it { expect(association.class_name).to eq 'User' }
+    end
+
+    context 'diary' do
+      let(:comment) { :diary }
+
+      it { expect(association.macro).to eq :belongs_to }
+      it { expect(association.class_name).to eq 'Diary' }
+    end
+  end
 end

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(current_user.id)
     @user = user.update(user_params)
-    redirect_to '/'
+    redirect_back fallback_location: '/'
   end
 
   def index

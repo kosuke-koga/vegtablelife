@@ -3,6 +3,7 @@
   <head>
     <title>Vegtablelife</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -34,7 +35,7 @@
           </li>
           <% else %>
           <li class="header_list guest">
-            <%= link_to "ゲストログイン",users_guest_sign_in_path,method: :post %>
+            <%= link_to "ゲストログイン",users_guest_sign_in_path,method: :post, data: { confirm: "ゲストユーザーとしてログインしました" } %>
           </li>
           <li class="header_list">
             <%= link_to "ログイン",new_user_session_path,method: :get %>

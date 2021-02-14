@@ -2,10 +2,10 @@
 
 FactoryBot.define do
   factory :user, aliases: [:owner] do
-    name 'kosuke'
-    image 'image_picture'
-    text 'web系企業への転職を成功させるためポートフォリオ作成中'
+    name { 'kosuke' }
+    icon { 'image_picture' }
+    text { 'キャベツ作ってます。お気軽にご連絡ください！' }
     sequence(:email) { |n| "tester#{n}@example.com" }
-    password 'dottle-nouveau-pavilion-tights-furze'
+    password { 'dottle-nouveau-pavilion-tights-furze' }
   end
 end
