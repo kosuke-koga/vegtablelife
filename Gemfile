@@ -73,3 +73,7 @@ gem 'kaminari'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'sprockets', '4.0.2'
+
+group :production do
+  gem 'rails_12factor'
+end
