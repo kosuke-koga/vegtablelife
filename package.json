@@ -8,9 +8,12 @@
     "test": "test"
   },
   "dependencies": {
+    "@rails/webpacker": "5.2.1",
     "tailwindcss": "^2.0.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

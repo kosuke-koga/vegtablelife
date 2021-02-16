@@ -843,23 +843,6 @@
     mkdirp "^1.0.4"
     rimraf "^2.7.1"
 
-"@rails/actioncable@^6.0.0":
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.1.1.tgz#e980b2ea1c62cae17bcddad37deb6ba88d498b63"
-  integrity sha512-A8toxvSuzK/wX9uMwyV6T1EYzlqzIJNrO8XiNCSNsmKresdX2cbAjxFdMu9haaPJPjl3aC2FKRJeVCUWVtLPAQ==
-
-"@rails/activestorage@^6.0.0":
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-6.1.1.tgz#c7e9c849ab9487c9914bd0bb447467cb4520bc56"
-  integrity sha512-eSVffvzY0MrC4bGP6RrqvlHM06HZ1kc/4XM3XkoL8pAObDANREfd9Dstm7mYpsgPLyhtJ96QxYLV27IoFiVTbQ==
-  dependencies:
-    spark-md5 "^3.0.0"
-
-"@rails/ujs@^6.0.0":
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-6.1.1.tgz#25c4e60018274b37e5ba0850134f6445429de2f5"
-  integrity sha512-uF6zEbXpGkNa7Vvxrd9Yqas8xsbc3lsC733V6I7fXgPuj8xXiuZakdE4uIyQSFRVmZKe12qmC6CNJNtIEvt4bA==
-
 "@rails/webpacker@5.2.1":
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-5.2.1.tgz#87cdbd4af2090ae2d74bdc51f6f04717d907c5b3"
@@ -1366,18 +1349,6 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-autoprefixer@^10.2.4:
-  version "10.2.4"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.2.4.tgz#c0e7cf24fcc6a1ae5d6250c623f0cb8beef2f7e1"
-  integrity sha512-DCCdUQiMD+P/as8m3XkeTUkUKuuRqLGcwD0nll7wevhqoJfMRpJlkFd1+MQh1pvupjiQuip42lc/VFvfUTMSKw==
-  dependencies:
-    browserslist "^4.16.1"
-    caniuse-lite "^1.0.30001181"
-    colorette "^1.2.1"
-    fraction.js "^4.0.13"
-    normalize-range "^0.1.2"
-    postcss-value-parser "^4.1.0"
-
 autoprefixer@^9.6.1:
   version "9.8.6"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.8.6.tgz#3b73594ca1bf9266320c5acf1588d74dea74210f"
@@ -1814,11 +1785,6 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, can
   version "1.0.30001180"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001180.tgz#67abcd6d1edf48fa5e7d1e84091d1d65ab76e33b"
   integrity sha512-n8JVqXuZMVSPKiPiypjFtDTXc4jWIdjxull0f92WLo7e1MSi3uJ3NvveakSh/aCl1QKFAvIz3vIj0v+0K+FrXw==
-
-caniuse-lite@^1.0.30001181:
-  version "1.0.30001181"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001181.tgz#4f0e5184e1ea7c3bf2727e735cbe7ca9a451d673"
-  integrity sha512-m5ul/ARCX50JB8BSNM+oiPmQrR5UmngaQ3QThTTp5HcIIQGP/nPBs82BYLE+tigzm3VW+F4BJIhUyaVtEweelQ==
 
 case-sensitive-paths-webpack-plugin@^2.3.0:
   version "2.3.0"
@@ -3176,11 +3142,6 @@ forwarded@~0.1.2:
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
 
-fraction.js@^4.0.13:
-  version "4.0.13"
-  resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.0.13.tgz#3c1c315fa16b35c85fffa95725a36fa729c69dfe"
-  integrity sha512-E1fz2Xs9ltlUp+qbiyx9wmt2n9dRzPsS11Jtdb8D2o+cC7wr9xkkKsVKJuBX0ST+LVS+LhLO+SbLJNtfWcJvXA==
-
 fragment-cache@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/fragment-cache/-/fragment-cache-0.2.1.tgz#4290fad27f13e89be7f33799c6bc5a0abfff0d19"
@@ -4031,7 +3992,15 @@ is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   dependencies:
     isobject "^3.0.1"
 
-is-regex@^1.0.4, is-regex@^1.1.1:
+is-regex@^1.0.4:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/is-regex/-/is-regex-1.1.2.tgz#81c8ebde4db142f2cf1c53fc86d6a45788266251"
+  integrity sha512-axvdhb5pdhEVThqJzYXwMlVuZwC+FF2DpcOhTS+y/8jVq4trxyPgfcwIxIKiyeuLlSQYKkmUaPQJ8ZE4yNKXDg==
+  dependencies:
+    call-bind "^1.0.2"
+    has-symbols "^1.0.1"
+
+is-regex@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/is-regex/-/is-regex-1.1.1.tgz#c6f98aacc546f6cec5468a07b7b153ab564a57b9"
   integrity sha512-1+QkEcxiLlB7VEyFtyBg94e08OAsvq7FUBgApTq/w2ymCLyKJgDPsybBENVtA7XCQEgEXxKPonG+mvYRxh/LIg==
@@ -4520,10 +4489,15 @@ miller-rabin@^4.0.0:
     bn.js "^4.0.0"
     brorand "^1.0.1"
 
-mime-db@1.45.0, "mime-db@>= 1.43.0 < 2":
+mime-db@1.45.0:
   version "1.45.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.45.0.tgz#cceeda21ccd7c3a745eba2decd55d4b73e7879ea"
   integrity sha512-CkqLUxUk15hofLoLyljJSrukZi8mAtgd+yE5uO4tqRZsdsAJKv0O+rFMhVDRJgozy+yG6md5KwuXhD4ocIoP+w==
+
+"mime-db@>= 1.43.0 < 2":
+  version "1.46.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.46.0.tgz#6267748a7f799594de3cbc8cde91def349661cee"
+  integrity sha512-svXaP8UQRZ5K7or+ZmfNhg2xX3yKDMUzqadsSqi4NCH/KomcH75MAMYAGVlvXn4+b/xOPhS3I2uHKRUzvjY7BQ==
 
 mime-types@^2.1.12, mime-types@~2.1.17, mime-types@~2.1.19, mime-types@~2.1.24:
   version "2.1.28"
@@ -6019,7 +5993,7 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.2
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@^8.1.6, postcss@^8.2.1, postcss@^8.2.4:
+postcss@^8.1.6, postcss@^8.2.1:
   version "8.2.4"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.2.4.tgz#20a98a39cf303d15129c2865a9ec37eda0031d04"
   integrity sha512-kRFftRoExRVXZlwUuay9iC824qmXPcQQVzAjbCCgjpXnkdMCJYBu2gTwAaFBzv8ewND6O8xFb3aELmEkh9zTzg==
@@ -6847,11 +6821,6 @@ source-map@~0.7.2:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.3.tgz#5302f8169031735226544092e64981f751750383"
   integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
 
-spark-md5@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.1.tgz#83a0e255734f2ab4e5c466e5a2cfc9ba2aa2124d"
-  integrity sha512-0tF3AGSD1ppQeuffsLDIOWlKUd3lS92tFxcsrh5Pe3ZphhnoK+oXIBTzOAThZCiuINZLvpiLH/1VS1/ANEJVig==
-
 spdx-correct@^3.0.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/spdx-correct/-/spdx-correct-3.1.1.tgz#dece81ac9c1e6713e5f7d1b6f17d468fa53d89a9"
@@ -7375,11 +7344,6 @@ tunnel-agent@^0.6.0:
   integrity sha1-J6XeoGs2sEoKmWZ3SykIaPD8QP0=
   dependencies:
     safe-buffer "^5.0.1"
-
-turbolinks@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/turbolinks/-/turbolinks-5.2.0.tgz#e6877a55ea5c1cb3bb225f0a4ae303d6d32ff77c"
-  integrity sha512-pMiez3tyBo6uRHFNNZoYMmrES/IaGgMhQQM+VFF36keryjb5ms0XkVpmKHkfW/4Vy96qiGW3K9bz0tF5sK9bBw==
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
