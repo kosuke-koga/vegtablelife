@@ -53,3 +53,6 @@ production:
   database: vegtablelife_production
   username: <%= ENV['NAME'] %>
   password: <%= ENV['KEY'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
