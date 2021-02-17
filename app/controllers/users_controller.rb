@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :move_to_index
   def show
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     @diaries = @user.diaries.order('id DESC').page(params[:page]).per(5)
     @cards = Task.includes(:user).where(user_id: current_user.id)
   end
@@ -31,5 +32,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :text, :icon)
+  end
+
+  def move_to_index
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
