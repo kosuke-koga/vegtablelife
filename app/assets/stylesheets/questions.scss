@@ -81,8 +81,30 @@
   box-shadow: 2px 2px 4px gray;
 }
 
+.question_index_delete{
+  text-align: center;
+  background-color: #cdd866;
+  padding: 10px 30px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  margin-left: 820px;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 200px;
+  a:link{
+    color: rgb(48, 46, 46);
+  }
+  a:visited{
+    color: rgb(48, 46, 46);
+  }
+}
+
 @media(max-width: 1024px){
   .question_index_answer{
+    margin: 0 auto;
+  }
+
+  .question_index_delete{
     margin: 0 auto;
   }
 
