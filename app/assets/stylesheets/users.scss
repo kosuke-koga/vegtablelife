@@ -94,3 +94,15 @@
 }
 
 // ----------------熟練農家紹介---------------------------
+
+@media(max-width: 1024px){
+  .user_show{
+    margin-left: 0;
+  }
+}
+
+@media(max-width: 600px){
+  .user_show{
+    display: none;
+  }
+}
