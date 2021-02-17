@@ -1,0 +1,39 @@
+<div class="menu_icon" id ="header_open">
+   <i class="fas fa-align-justify"></i>
+</div>
+<div class="overlay">
+   <div class="menu_icon" id ="header_close">
+      <i class="fas fa-times"></i>
+   </div>
+   <nav>
+      <ul class="header_menu">
+          <% if user_signed_in? %>
+            <% if current_user.id == 7 %>
+              <li class="header_menu_list">
+                <%= link_to "info作成", new_infomation_path,method: :get  %>
+              </li>
+            <% end %>
+          <li class="header_menu_list">
+            <%= link_to "info", infomations_path,method: :get  %>
+          </li>
+          <li class="header_menu_list">
+            <%= link_to "マイページ", user_path(current_user.id),method: :get  %>
+          </li>
+          <li class="header_menu_list">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+          <% else %>
+          <li class="header_menu_list guest">
+            <%= link_to "ゲストログイン",users_guest_sign_in_path,method: :post, data: { confirm: "ゲストユーザーとしてログインしました" } %>
+          </li>
+          <li class="header_menu_list">
+            <%= link_to "ログイン",new_user_session_path,method: :get %>
+          </li>
+          <li class="header_menu_list">
+            <%= link_to "新規登録",new_user_registration_path,method: :get %>
+          </li>
+          <% end %>
+      </ul>
+   </nav>
+</div>
+<%= javascript_pack_tag 'application/application' %>
