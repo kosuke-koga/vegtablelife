@@ -2,7 +2,7 @@
   <% @infomations.each do |f| %>
     <div class="infomaiton_title"><%= f.title %></div>
     <div class="infomaiton_info"><%= f.info %></div>
-    <% if current_user.id == 7 %>
+    <% if current_user.admin? %>
       <%= link_to "編集", edit_infomation_path(f.id), method: :get %>
       <%= link_to "削除", infomation_path(f.id), method: :delete %>
     <% end %>

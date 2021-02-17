@@ -1,13 +1,13 @@
 <div class="question">
   <div class="question_index_title"><%= @question.title %></div>
   <div class="question_index_question"><%= @question.question %></div>
-  <% if @question.user_id == current_user.id %>
+  <% if @question.user_id == current_user.id || current_user.admin? %>
     <div class="question_index_delete"><%= link_to "削　　除", question_path(@question.id), method: :delete %></div>
   <% end %>
 </div>
 
 <div class="comment_all">
-  <% if current_user.id == 3 %>
+  <% if current_user.admin? %>
     <div id="open">
       <p>Answerを書く</p>
     </div>
