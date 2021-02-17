@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :tasks, except: :show
   resources :infomations
 
-  resources :questions, except: %i[update edit destroy] do
+  resources :questions, except: %i[update edit] do
     resources :answers, only: %i[new create]
   end
 
