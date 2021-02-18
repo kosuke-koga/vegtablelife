@@ -41,7 +41,8 @@ class DiariesController < ApplicationController
   end
 
   def atunou_index
-    @atunou_diaries = Diary.where(user_id: 3).or(Diary.where(user_id: 4)).order('id DESC').page(params[:page]).per(5)
+    user = User.where(admin: true)
+    @atunou_diaries = Diary.where(user_id: user.ids).order('id DESC').page(params[:page]).per(5)
   end
 
   def bookmarks
