@@ -17,8 +17,23 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmarks_diaries, through: :bookmarks, source: :diary
 
   def liked_by?(diary_id)
     likes.where(diary_id: diary_id).exists?
   end
+
+  def bookmark(diary)
+    bookmarks_diaries << diary
+  end
+
+  def unbookmark(diary)
+    bookmarks_diaries.delete(diary)
+  end
+
+  def bookmark?(diary)
+    Bookmark.where(user_id: id, diary_id: diary.id).exists?
+  end
+
 end
