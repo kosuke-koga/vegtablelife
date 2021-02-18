@@ -28,9 +28,15 @@
               <li class="diary_destroy"><%= link_to "削　除", diary_path(d.id), method: :delete %></li>
             <% end %>
             <% if current_user.liked_by?(d.id) %>
-              <td><%= link_to "🖤", destroy_like_path(d), method: :DELETE %> <%= d.likes.count %></td>
+              <td><%= link_to destroy_like_path(d), method: :DELETE, remote: true do %> <%= d.likes.count %>
+                    <i class="fas fa-heart like"></i>
+                  <% end %>
+              </td>
             <% else %>
-              <td><%= link_to "❤️", create_like_path(d), method: :POST %> <%= d.likes.count %></td>
+              <td><%= link_to create_like_path(d), method: :POST, remote: true do %> <%= d.likes.count %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+              </td>
             <% end %>
           <% end %>
         </ul>
