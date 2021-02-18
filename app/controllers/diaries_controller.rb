@@ -44,6 +44,10 @@ class DiariesController < ApplicationController
     @atunou_diaries = Diary.where(user_id: 3).or(Diary.where(user_id: 4)).order('id DESC').page(params[:page]).per(5)
   end
 
+  def bookmarks
+    @bookmark_diaries = current_user.bookmarks_diaries.includes(:user).order('id DESC').page(params[:page]).per(5)
+  end
+
   private
 
   def diary_search_params

@@ -22,6 +22,7 @@
         <ul class="diary_next_action">
           <li class="diary_show"><%= link_to "詳　細", diary_path(d.id), method: :get %></li>
           <% if user_signed_in? %>
+            <li class="diary_destroy"><%= render 'bookmarks/bookmark_area', diary: d %></li>
             <% if current_user.id == d.user_id || current_user.admin? %>
               <li class="diary_update"><%= link_to "更　新", edit_diary_path(d.id),method: :get %></li>
               <li class="diary_destroy"><%= link_to "削　除", diary_path(d.id), method: :delete %></li>

@@ -28,6 +28,11 @@
               </li>
             <% end %>
           <li class="header_list">
+            <%= link_to  bookmarks_diaries_path,method: :get do %>
+              <i class="fas fa-bookmark"></i>
+            <% end %>
+          </li>
+          <li class="header_list">
             <%= link_to "info", infomations_path,method: :get  %>
           </li>
           <li class="header_list">
