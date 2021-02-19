@@ -4,6 +4,7 @@
       <div class="question_title"><label>質問のタイトルを入力してください<br><%= form.text_field :title, size:"80" %></label></div>
       <div class="question_question"><label>質問内容<br><%= form.text_area :question, size:"80x10" %></label></div>
       <div class="question_submit"><%= form.submit "質問を送る" %></div>
+      <%# 投稿に失敗した時(validationで弾かれた時)以下を表示 %>
       <div class="alert"><%= flash[:alert] %></div>
     <% end %>
   </div>
