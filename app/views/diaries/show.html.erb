@@ -1,3 +1,4 @@
+<%# localsの{}内に@diaryを入れるとエラーとなったので,d = @diary に置き換えて値を代入している %>
 <% d = @diary %>
   <%= render partial:"/diaries/diaries", locals:{ d: d } %>
   <div class="comment-text"><%= d.text %></div>
