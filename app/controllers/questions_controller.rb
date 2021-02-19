@@ -19,14 +19,18 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    @question.save
-    redirect_to '/'
+    if @question.save
+      redirect_to '/'
+    else
+      flash[:alert] = 'タイトル及び内容を記入してください'
+      redirect_to action: :new
+    end
   end
 
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
-    redirect_to questions_path
+    redirect_to '/'
   end
 
   private

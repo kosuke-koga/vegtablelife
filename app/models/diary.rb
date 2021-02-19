@@ -16,5 +16,5 @@ class Diary < ApplicationRecord
     vegtable_like(search_params[:vegtable])
   }
 
-  scope :vegtable_like, ->(vegtable) { where('vegtable LIKE ?', "%#{vegtable}") if vegtable.present? }
+  scope :vegtable_like, ->(vegtable) { where('vegtable LIKE ?', "%#{vegtable}%") if vegtable.present? }
 end
