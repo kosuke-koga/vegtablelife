@@ -3,7 +3,7 @@
 class TasksController < ApplicationController
   def index
     @task = Task.new
-    @cards = Task.includes(:user).where(user_id: current_user.id)
+    @cards = Task.includes(:user).where(user_id: user.find(params[:id]))
   end
 
   def new

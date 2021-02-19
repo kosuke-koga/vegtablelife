@@ -22,6 +22,9 @@
           <li class="header_menu_list">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </li>
+          <li class="header_menu_list">
+            <%= link_to "ブックマーク", bookmarks_diaries_path,method: :get %>
+          </li>
           <% else %>
           <li class="header_menu_list guest">
             <%= link_to "ゲストログイン",users_guest_sign_in_path,method: :post, data: { confirm: "ゲストユーザーとしてログインしました" } %>

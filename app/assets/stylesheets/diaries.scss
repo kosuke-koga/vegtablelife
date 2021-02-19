@@ -14,8 +14,27 @@ div {
   padding: 0;
 }
 
+html {
+  background-color: #DEFFDD;
+  height: 100%;
+}
+
 body {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
+  background-color: #DEFFDD;
+  height: 100%;
+}
+
+#wrapper{
+  width: 100%;
+  position: relative;
+  min-height: 100%;
+}
+
+footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 li {
@@ -89,6 +108,7 @@ a {
 // --------------------------main-------------------------------------
 main{
   background-color:  #deffdd;
+  padding-bottom: 100px;
 }
 
 .diary_list{
@@ -196,6 +216,12 @@ main{
   margin-right: 25px;
   color: #EFEDED;
   letter-spacing: 3px;
+}
+
+.modoru{
+  margin: 0 auto;
+  font-size: 12pt;
+  padding-top: 5px;
 }
 
 // --------------------------show.html.erb------------------------------------
@@ -345,6 +371,10 @@ main{
   padding-bottom: 85px;
   padding-top: 50px;
 }
+
+.alert{
+  color: red;
+}
 // --------------------------headerの下------------------------------------
 .index_content{
   cursor: pointer;
@@ -459,7 +489,13 @@ main{
     margin-left: 30px;
     width: 100%;
   }
+
+  .header_bookmark{
+    display: none;
+  }
 }
+
+// -----------------------@media(max-width: 600px)-----------------------------
 
 @media(max-width: 600px){
   .header_icon{

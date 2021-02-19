@@ -23,10 +23,12 @@
     <div id="mask" class="hidden"></div>
   <% end %>
 
-    <% if @answers %>
+    <% if @answers.exists? %>
       <% @answers.each do |c| %>
         <div class="question_answer"><%= c.answer %></div>
       <% end %>
+    <% else %>
+      <div class="question_answer"><p>まだ回答はありません。<br>もう少々お待ちください。</p></div>
     <% end %>
 </div>
  <%= javascript_pack_tag 'diary/application' %>

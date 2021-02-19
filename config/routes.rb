@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root 'diaries#index'
   resources :diaries do
     resources :comments, only: %i[new create]
-    resources :bookmarks, only: [:create, :destroy]
+    resources :bookmarks, only: %i[create destroy]
     collection do
       get :bookmarks
     end

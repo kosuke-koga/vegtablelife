@@ -14,8 +14,12 @@ class DiariesController < ApplicationController
 
   def create
     @diary = Diary.new(diary_params)
-    @diary.save
-    redirect_to '/'
+    if @diary.save
+      redirect_to '/'
+    else
+      flash[:alert] = '作業項目を入力してください'
+      redirect_to action: :new
+    end
   end
 
   def show

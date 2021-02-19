@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @diaries = @user.diaries.order('id DESC').page(params[:page]).per(5)
-    @cards = Task.includes(:user).where(user_id: current_user.id)
+    @cards = Task.includes(:user).where(user_id: @user)
   end
 
   def create

@@ -35,5 +35,4 @@ class User < ApplicationRecord
   def bookmark?(diary)
     Bookmark.where(user_id: id, diary_id: diary.id).exists?
   end
-
 end
