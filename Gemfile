@@ -76,6 +76,6 @@ gem 'pry-rails'
 gem 'sprockets', '4.0.2'
 
 group :production do
-  gem 'pg'
+  # gem 'pg'
   gem 'rails_12factor'
 end
