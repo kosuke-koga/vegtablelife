@@ -7,13 +7,13 @@ RSpec.describe 'Users', type: :system do
     user = FactoryBot.create(:user)
 
     visit root_path
-    click_link 'ログイン'
+    find('.log').click
     fill_in 'user[name]',  with: user.name
     fill_in 'user[email]', with: user.email
     fill_in 'user[password]', with: user.password
     click_button 'Log in'
 
-    click_link 'マイページ'
+    find('.my').click
     find('#user_show_open').click
     fill_in 'user[name]', with: 'tonakai'
     click_button '更新'

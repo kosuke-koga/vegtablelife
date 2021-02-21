@@ -35,7 +35,7 @@
           <li class="header_list">
             <%= link_to "info", infomations_path,method: :get  %>
           </li>
-          <li class="header_list">
+          <li class="header_list my">
             <%= link_to "マイページ", user_path(current_user.id),method: :get  %>
           </li>
           <li class="header_list">
@@ -45,7 +45,7 @@
           <li class="header_list guest">
             <%= link_to "ゲストログイン",users_guest_sign_in_path,method: :post, data: { confirm: "ゲストユーザーとしてログインしました" } %>
           </li>
-          <li class="header_list">
+          <li class="header_list log">
             <%= link_to "ログイン",new_user_session_path,method: :get %>
           </li>
           <li class="header_list">

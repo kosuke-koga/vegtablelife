@@ -7,7 +7,7 @@ RSpec.describe 'Diaries', type: :system do
     user = FactoryBot.create(:user)
 
     visit root_path
-    click_link 'ログイン'
+    find('.log').click
     fill_in 'user[name]',  with: user.name
     fill_in 'user[email]', with: user.email
     fill_in 'user[password]', with: user.password
