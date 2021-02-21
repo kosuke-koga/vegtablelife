@@ -16,13 +16,13 @@ RSpec.describe Diary, type: :model do
     it 'is invalid without action' do
       diary = FactoryBot.build(:diary, action: nil)
       diary.valid?
-      expect(diary.errors[:action]).to include("can't be blank")
+      expect(diary.errors[:action]).to include("を入力してください")
     end
 
     it 'is invalid without date' do
       diary = FactoryBot.build(:diary, date: nil)
       diary.valid?
-      expect(diary.errors[:date]).to include("can't be blank")
+      expect(diary.errors[:date]).to include("を入力してください")
     end
   end
 
