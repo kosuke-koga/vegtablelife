@@ -40,6 +40,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~>4.10.0'
   gem 'launchy', '~> 2.4.3'
+  gem 'dotenv-rails'
 end
 
 group :development do
