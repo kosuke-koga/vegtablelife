@@ -36,9 +36,9 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run:
-          name: yarn install
-          command: yarn install --check-files
+      # - run:
+      #     name: yarn install
+      #     command: yarn install --check-files
 
       - run:
           name: bundle installを実行
@@ -62,7 +62,7 @@ jobs:
 
       - run:
           name: Rspec
-          command: bundle exec rspec
+          command: bundle exec bin/rspec
 
       # collect reports
       - store_test_results:
