@@ -2,14 +2,73 @@ version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2 
 
+
 jobs:
-  build:
+  build: # our first job, named "build"
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
-    executor: ruby/default
+      - image: circleci/ruby:2.6.6 
+        environment: # 環境変数の設定
+          RAILS_ENV: 'test'
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_USERNAME: 'root'
+          MYSQL_PASSWORD: ''
+          MYSQL_PORT: 4306
+
+      - image: circleci/mysql:8.0.23
+        # caching_sha2_password がないというエラー対策
+        command: mysqld --default-authentication-plugin=mysql_native_password
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          MYSQL_ROOT_HOST: '%'
+
+    # working_directory: 実行ディレクトリを設定する。デフォルトは ~/project
+    working_directory: ~/repo
+
+    # checkout: CI環境上の working_directory の値の場所にGitリポジトリをコピーする。
     steps:
-      - checkout
+      - checkout  #後続のstepで必要なブランチコードを自動で取得
+
+      # Download and cache dependencies
+      - restore_cache:
+          name: bundle installの結果をrestore
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
       - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+          name: yarn install
+          command: yarn install --check-files
+
+      - run:
+          name: bundle installを実行
+          command: bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          name: bundle installの結果をキャッシュ
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+
+      # Database setup
+      - run: mv config/database.ci.yml config/database.yml
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:schema:load
+
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+
+      - run:
+          name: Rspec
+          command: bundle exec rspec
+
+      # collect reports
+      - store_test_results:
+          # path: /tmp/test-results
+          path: test_results
+      - store_artifacts:
+          # path: /tmp/test-results
+          path: test_results
+          destination: test-results
