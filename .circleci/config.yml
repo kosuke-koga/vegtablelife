@@ -1,81 +1,32 @@
-version: 2.1
-orbs:
-  ruby: circleci/ruby@0.1.2 
-
-
+version: 2
 jobs:
-  build: # our first job, named "build"
-    docker:
-      - image: circleci/ruby:2.6.6 
-        environment: # 環境変数の設定
-          RAILS_ENV: 'test'
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_USERNAME: 'root'
-          MYSQL_PASSWORD: ''
-          MYSQL_PORT: 4306
-
-      - image: circleci/mysql:8.0.23
-        # caching_sha2_password がないというエラー対策
-        command: mysqld --default-authentication-plugin=mysql_native_password
-        environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-          MYSQL_ROOT_HOST: '%'
-
-    # working_directory: 実行ディレクトリを設定する。デフォルトは ~/project
-    working_directory: ~/repo
-
-    # checkout: CI環境上の working_directory の値の場所にGitリポジトリをコピーする。
+  build:
+    #Docker-composeが仮想済のマシーンをpull
+    machine:
+      image: circleci/classic:edge
     steps:
-      - checkout  #後続のstepで必要なブランチコードを自動で取得
-
-      # Download and cache dependencies
-      - restore_cache:
-          name: bundle installの結果をrestore
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      # - run:
-      #     name: yarn install
-      #     command: yarn install --check-files
-
+      - checkout
       - run:
-          name: bundle installを実行
-          command: |
-            gem install bundler:2.1.4
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-
-      - save_cache:
-          name: bundle installの結果をキャッシュ
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-
-      # Database setup
-      - run: mv config/database.ci.yml config/database.yml
-      # - run: brew install mysql
-      # - run: mysql.server restart
-      # - run: sudo rm -f /var/run/mysqld/mysqld.sock
-      # - run: sudo rm -f /tmp/mysql.sock
-      # - run: sudo /etc/init.d/mysql start
-      - run: bundle exec rake db:create
-      - run: bundle exec rails db:schema:load
-
+          name: Dockerコンテナのビルド
+          command: docker-compose build
       - run:
-          name: Rubocop
-          command: bundle exec rubocop
-
+          name: Dockerコンテナの起動
+          command: docker-compose up -d
       - run:
-          name: Rspec
-          command: bundle exec bin/rspec
-
-      # collect reports
-      - store_test_results:
-          # path: /tmp/test-results
-          path: test_results
-      - store_artifacts:
-          # path: /tmp/test-results
-          path: test_results
-          destination: test-results
+          name: "10秒待機させる"
+          command: sleep 10
+      - run:
+          name: データベースの作成
+          command: docker-compose run web rails db:create RAILS_ENV=test
+      - run:
+          name: データベースのセットアップ
+          command: docker-compose run web rails db:migrate RAILS_ENV=test
+      - run:
+          name: Rspecテスト実行
+          command: docker-compose run web bundle exec bin/rspec
+      - run:
+          name: rubocop実行
+          command: docker-compose run web bundle exec rubocop
+      - run:
+          name: Dockerコンテナの停止
+          command: docker-compose down
