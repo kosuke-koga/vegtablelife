@@ -55,6 +55,7 @@ jobs:
 
       # Database setup
       - run: mv config/database.ci.yml config/database.yml
+      - run: brew install mysql
       - run: mysql.server restart
       - run: sudo rm -f /var/run/mysqld/mysqld.sock
       - run: sudo rm -f /tmp/mysql.sock
