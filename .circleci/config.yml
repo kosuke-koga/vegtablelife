@@ -42,7 +42,9 @@ jobs:
 
       - run:
           name: bundle installを実行
-          command: bundle install --jobs=4 --retry=3 --path vendor/bundle
+          command: |
+            gem install bundler:2.1.4
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
           name: bundle installの結果をキャッシュ
