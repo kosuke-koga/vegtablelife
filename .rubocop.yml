@@ -1,1 +1,8 @@
 inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - "vendor/**/*" # rubocop config/default.yml
+    - "db/schema.rb"
+    - "node_modules/**/**/**/**/*"
+  DisplayCopNames: true
