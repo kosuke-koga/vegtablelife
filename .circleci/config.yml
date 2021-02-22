@@ -56,7 +56,6 @@ jobs:
       # Database setup
       - run: mv config/database.ci.yml config/database.yml
       - run: sudo touch /tmp/mysql.sock
-      - run: sudo /var/run/mysqld/mysqld.sock
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
 
