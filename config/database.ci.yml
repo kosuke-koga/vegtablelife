@@ -6,5 +6,5 @@ test:
   password: CU_C1173bub
   port: 4306
   socket: /tmp/mysql.sock
-  host: db
+  host: localhost
   database: vegtablelife_test
