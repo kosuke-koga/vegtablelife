@@ -55,9 +55,8 @@ jobs:
 
       # Database setup
       - run: mv config/database.ci.yml config/database.yml
-      - run: docker-compose exec web rails db:create
-      - run: docker-compose exec web rails db:schema:load
-      # - run: bundle exec rails db:schema:load
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:schema:load
 
       - run:
           name: Rubocop

@@ -4,5 +4,5 @@ test:
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: 'root'
   port: 4306
-  host: db
+  host: localhost
   database: vegtablelife_test
