@@ -3,6 +3,7 @@ test:
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: 'root'
+  password: CU_C1173bub
   port: 4306
   host: 'db'
   database: vegtablelife_test
