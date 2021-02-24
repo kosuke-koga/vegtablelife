@@ -145,7 +145,7 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
-    minitest (5.14.3)
+    minitest (5.14.4)
     mysql2 (0.5.2)
     nio4r (2.5.5)
     nokogiri (1.11.1)
@@ -274,7 +274,7 @@ GEM
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
-    unicorn (3.6.2)
+    unicorn (3.7.0)
       kgio (~> 2.3)
       rack
     warden (1.2.9)
@@ -329,7 +329,7 @@ DEPENDENCIES
   sprockets (= 4.0.2)
   turbolinks (~> 5)
   tzinfo-data
-  unicorn (= 3.6.2)
+  unicorn (~> 3.6, >= 3.6.2)
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
