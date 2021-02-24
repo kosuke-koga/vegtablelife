@@ -203,6 +203,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 1.0)
     rainbow (3.0.0)
+    raindrops (0.19.1)
     rake (13.0.3)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
@@ -274,9 +275,9 @@ GEM
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
-    unicorn (3.7.0)
-      kgio (~> 2.3)
-      rack
+    unicorn (5.4.1)
+      kgio (~> 2.6)
+      raindrops (~> 0.7)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.1.0)
@@ -329,7 +330,7 @@ DEPENDENCIES
   sprockets (= 4.0.2)
   turbolinks (~> 5)
   tzinfo-data
-  unicorn (~> 3.6, >= 3.6.2)
+  unicorn (= 5.4.1)
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
