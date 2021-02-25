@@ -52,9 +52,9 @@ test:
 production:
   <<: *default
   database: vegtablelife
-  username: <%= Rails.application.credentials.db[:username] %>
-  password: <%= Rails.application.credentials.db[:password] %>
-  socket:  <%= Rails.application.credentials.db[:socket] %>
+  username: vegtable
+  password: CU_C1173bub
+  socket:  /var/lib/mysql/mysql.sock
   # host: 10.0.3.10
   # adapter: mysql2
   # encoding: utf8
