@@ -79,3 +79,7 @@ group :production do
   gem 'rails_12factor'
   gem 'unicorn', '5.4.1'
 end
+
+group :development do
+  gem "capistrano", "~> 3.12", require: false
+end
