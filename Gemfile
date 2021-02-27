@@ -81,5 +81,5 @@ group :production do
 end
 
 group :development do
-  gem "capistrano", "~> 3.12", require: false
+  gem 'capistrano', '~> 3.12', require: false
 end

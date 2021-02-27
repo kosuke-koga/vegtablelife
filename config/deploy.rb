@@ -1,9 +1,11 @@
-# config valid for current version and patch releases of Capistrano
-lock "~> 3.15.0"
+# frozen_string_literal: true
 
-set :application, "vegtablelife"
-set :repo_url, "https://github.com/kosuke-koga/vegtablelife.git"
-set :deploy_to, "/var/www/vegtablelife"
+# config valid for current version and patch releases of Capistrano
+lock '~> 3.15.0'
+
+set :application, 'vegtablelife'
+set :repo_url, 'https://github.com/kosuke-koga/vegtablelife.git'
+set :deploy_to, '/var/www/vegtablelife'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
