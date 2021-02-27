@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-app_path = File.expand_path('..', __dir__)
+app_path = File.expand_path('../', __dir__)
 
 # アプリケーションサーバの性能を決定する
 worker_processes 1

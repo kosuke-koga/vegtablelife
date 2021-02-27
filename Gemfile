@@ -79,3 +79,11 @@ group :production do
   gem 'rails_12factor'
   gem 'unicorn', '5.4.1'
 end
+
+group :development do
+  gem 'capistrano', '~> 3.12', require: false
+  gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
+  gem 'capistrano-bundler', '~> 1.6'
+  gem 'capistrano-rails', '~> 1.4', require: false
+  gem 'capistrano-rbenv', '~> 2.1'
+end
