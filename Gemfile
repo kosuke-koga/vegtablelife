@@ -77,6 +77,7 @@ gem 'sprockets', '4.0.2'
 
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn'
 end
 
 # group :development do
