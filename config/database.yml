@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: CU_C1173bub
+  username: <%= ENV.fetch("USER_NAME") %>
+  password: <%= ENV.fetch("PASSWORD") %>
   socket: /tmp/mysql.sock
   host: db
 
@@ -52,6 +52,6 @@ test:
 production:
   <<: *default
   database: vegtablelife
-  username: root
-  password: CU_C1173bub
+  username: <%= ENV.fetch("USER_NAME") %>
+  password: <%= ENV.fetch("PASSWORD") %>
   socket: /var/lib/mysql/mysql.sock
