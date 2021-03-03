@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV("USER_NAME") %>
-  password: <%= ENV("PASSWORD") %>
+  username: <%= ENV['USER_NAME'] %>
+  password: <%= ENV['KEY'] %>
   socket: /tmp/mysql.sock
   host: db
 
