@@ -5,7 +5,7 @@ class DiariesController < ApplicationController
 
   def index
     @search_params = diary_search_params
-    @diaries = Diary.all.order('id DESC').page(params[:page]).per(5).search(@search_params)
+    @diaries = Diary.all.order('id DESC').page(params[:page]).per(5).search(@search_params).includes(user: :bookmarks)
   end
 
   def new
