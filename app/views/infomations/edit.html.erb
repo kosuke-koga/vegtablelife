@@ -1,1 +1,5 @@
- <%= render partial: "info" %>
+<%= form_with model: @infomation do |form| %>
+    <%= form.text_field :title %>
+    <%= form.text_area :info, placeholder: "文章" %>
+    <%= form.submit %>
+<% end %>

@@ -1,5 +1,9 @@
  <% if current_user.bookmark?(diary) %>
-    <%= render 'bookmarks/unbookmark', diary: diary %>
+    <%= link_to diary_bookmark_path(diary.id, current_user.bookmarks.find_by(diary_id: diary.id)), id: "js-bookmark-button-for-diary-#{diary.id}", method: :delete, remote: true do %>
+        <i class="fas fa-bookmark"></i>
+    <% end %>
  <% else %>
-    <%= render 'bookmarks/bookmark',  diary: diary %>
+     <%= link_to diary_bookmarks_path(diary_id: diary.id), id: "js-bookmark-button-for-diary-#{diary.id}", method: :post, remote: true do %>
+       <i class="far fa-bookmark"></i>
+     <% end %>
  <% end %>

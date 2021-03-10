@@ -1,1 +1,16 @@
- <%= render partial:"new" %>
+<div class="new_diary_box">
+  <section id ="new_modal" class="hidden"> 
+    <%= form_with model: @diary do |form| %>
+      <div class="diaries_create">
+        <p><label>日付を入力してください<br> <%= form.date_select :date, placeholder:"必須" %></label></p>
+        <p><label>野菜を入力して下さい<br> <%= form.text_field :vegtable %></label></p>
+        <p><label>作業内容を入力して下さい<br> <%= form.text_field :action, placeholder:"※必須" %></label></p>
+        <p><label>画像をアップロードして下さい<br> <%= form.file_field :avatar %></label></p>
+        <p><label>日記を入力して下さい<br> <%= form.text_area :text, size: "80x10" %></label></p>
+        <div class="new_send"><%= form.submit "投稿" %></div>
+        <%# 投稿に失敗した時(validationで弾かれた時)以下を表示 %>
+        <div class="alert"><%= flash[:alert] %></div>
+      </div>
+    <% end %>
+  </section>
+</div>

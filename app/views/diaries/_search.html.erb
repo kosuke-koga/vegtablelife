@@ -1,6 +1,0 @@
-<div class= "search">
-   <%= form_with(scope: :search, url: diaries_path, method: :get, local: true) do |f| %>
-      <%= f.text_field :vegtable, value: @search_params[:vegtable],placeholder:"🔍野菜を入力" %>
-      <%= f.submit "検索" %>
-   <% end %>
-</div>

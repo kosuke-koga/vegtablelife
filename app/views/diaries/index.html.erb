@@ -1,8 +1,13 @@
 <div class="index_content">
-  <%= render partial: "atunou" %>
-  <%= render partial: "/questions/questions" %>
+  <div class="atunou_index"><%= link_to "熟練農家の投稿", atunou_path, method: :get %></div>
+  <div class="question_index"><%= link_to "質問一覧", questions_path, method: :get %></div>
 </div>
-  <%= render partial: "search" %>
+  <div class= "search">
+    <%= form_with(scope: :search, url: diaries_path, method: :get, local: true) do |f| %>
+        <%= f.text_field :vegtable, value: @search_params[:vegtable],placeholder:"🔍野菜を入力" %>
+        <%= f.submit "検索" %>
+    <% end %>
+  </div>
 
 <div id="new_open">
   <div class="new_question">
@@ -15,9 +20,9 @@
 
 
 
-<% @diaries.each do |d| %>
-  <tr id="diary_<%= d.id %>">
-    <%= render partial: "/diaries/diaries", locals: { d: d }  %>
+
+  <tr id="diary_<%= @diaries.ids %>">
+    <%= render partial: 'diaries', collection: @diaries, as: "d"  %>
   </tr>
-<% end %>
+
  <%= paginate(@diaries) %>

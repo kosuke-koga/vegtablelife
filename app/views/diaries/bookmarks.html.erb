@@ -1,6 +1,6 @@
-<% @bookmark_diaries.each do |d| %>
-  <tr id="diary_<%= d.id %>">
-    <%= render partial: "/diaries/diaries", locals: { d: d }  %>
+
+  <tr id="diary_<%= @diaries.id %>">
+    <%= render @diaries  %>
   </tr>
-<% end %>
+
  <%= paginate(@bookmark_diaries) %>
