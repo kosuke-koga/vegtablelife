@@ -11,7 +11,18 @@
     <div id="user_show_open">
       <p>プロフィールを編集</p>
     </div>
-    <%= render partial: "edit" %>
+    <section id="user_show_modal" class="hidden">
+      <%= form_with model: @user do |form| %>
+        <div class="diaries_create">  
+          <p><label>名前<br> <%= form.text_field :name %></label></p>
+          <p><label>アイコン画像<br> <%= form.file_field :icon %></label></p>
+          <p><label>自己紹介<br> <%= form.text_area :text, size: "50x5" %></label></p>
+          <%= form.submit "更新" %>
+        </div>
+        <div id="user_show_close">close</div>
+      <% end %>
+    </section>
+    <div id="user_show_mask" class="hidden"></div>
     <%= javascript_pack_tag 'user/application' %>
   </div>
   <div class="task_diary">
@@ -26,7 +37,32 @@
     <%= paginate(@diaries) %>
     </div>
     <div class="task">
-      <%= render partial:"/tasks/index" %>
+      <div class="task_modal task_content" id="task_all">
+        <div class="task_card" >
+        
+            <% if @cards != nil %>
+              <% @cards.each do |t| %>
+                <div class="card_list">
+                  <%= t.date %>
+                  <%= t.card %>
+                  <%= link_to "削除", task_path(t.id), method: :delete %>
+                </div>
+              <% end %>
+            <% end %>
+          <div class="card_add">
+            
+              <p>作業内容を追加</p>
+                <%= form_with model: @task, url: {controller: 'tasks', action: 'create'} do |form| %>
+                  <div>
+                    <p><label>期限<br> <%= form.date_select :date %></label></p>
+                    <%= form.text_area :card, size:"25x5", placeholder: "作業内容" %><br>
+                    <%= form.submit "作業登録" %>
+                  </div>
+                <% end %>
+        
+          </div>
+        </div>
+      </div>
     </div>
     <%= javascript_pack_tag 'task/application' %>
   </div>
